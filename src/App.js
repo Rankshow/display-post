@@ -3,7 +3,7 @@ import Axios from "axios";
 import "./App.css";
 import Details from './component/details'
 
-// Axios url ('https://jsonplaceholder.typicode.com/posts?userId=')
+// Api
 const baseUrl = 'https://jsonplaceholder.typicode.com/posts';
 
 const App = () => {
@@ -15,6 +15,12 @@ const App = () => {
         setAllPost(res.data)
       })
     }, [])
+    
+    // handle add button
+    const handleAdd = (id) => {
+      const addBtn = allPost.filter(list => list.id === id);
+      setAllPost(addBtn);
+    }
 
     // handleDelete button
     const handleDelete = (id) =>{
@@ -28,6 +34,7 @@ const App = () => {
   }
   )
 
+  // Rendering to the DOM
   return (
     <div className="App">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,192L60,186.7C120,181,240,171,360,170.7C480,171,600,181,720,154.7C840,128,960,64,1080,74.7C1200,85,1320,171,1380,213.3L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
@@ -39,7 +46,7 @@ const App = () => {
             <div key={list.id}>
               <Details title={list.title} body={list.body}/>
               <button onClick={() => handleDelete(list.id)} className="btn">Delete</button>
-              <button className="Addbtn">Add</button>
+              <button onClick={() => handleAdd(list.id)} className="Addbtn">Add</button>
           </div>
          ))}
 
