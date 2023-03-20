@@ -1,4 +1,29 @@
 .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border: 1px solid rgb(36, 5, 6);
-    margin-top: 10px;
+    margin: 0 auto;
+    width: 90vw;
+    margin-top: 20px;
+    border-bottom: 2px solid rgb(10, 1, 1);
+}
+
+/* Laptop 1024 */
+@media screen and (min-width:1024px) and (max-width:1439px){
+    .details {
+      width: 500px;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .details {
+        width: 500px;
+      }
+}
+/* mobile md 375 */
+@media screen and (min-width:375px) and (max-width:424px){
+    .details {
+        width: 90vw;
+    }
 }
